@@ -36,11 +36,16 @@ https://blazor-university.com/
 
 # Links les 2
 
+https://github.com/radzenhq/radzen-blazor
+
 https://www.layoutit.com/build
 
 https://getbootstrap.com/docs/5.1/examples/
 
 https://blazor.radzen.com/
 
+# Links les 3
+
+https://github.com/Blazored/LocalStorage
 
 
