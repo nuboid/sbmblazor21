@@ -1,7 +1,58 @@
 ﻿@page "/"
+@using MyBlazorWASMApp.DataServices
 
-<h1>Hello, world!</h1>
+@inject NavigationManager _navigationManager
 
-Welcome to your new app.
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+@inject NotificationService NotificationService
+@inject MyDataService _myDataService;
+@inject Blazored.LocalStorage.ILocalStorageService _localStorage
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6">
+            @MyParameter
+            <RadzenButton Text="Hello World" Click="@(_ => OnClick1())"/>
+        </div>
+        <div class="col-md-6">
+            <RadzenTextBox Change=@(args => OnChange(args, "TextBox"))/><br/>
+            <NavLink href="Page2">click here for second page</NavLink>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <RadzenDropDown AllowClear="true" 
+                            TValue="string"
+                            Style="width: 300px"
+                            Data=@_data 
+                            TextProperty="FullName" 
+                            ValueProperty="Id"
+                            Change=@(args => OnChangeDropdown(args))/>
+        </div>
+        <div class="col-md-4">
+            <RadzenButton Text="Test Data"   Style="width: 300px" Click="@(_ => OnTestData())"/>
+            
+        </div>
+        <div class="col-md-4">
+            <RadzenButton Text="Update Data"   Style="width: 300px" Click="@(_ => OnUpdateData())"/>
+            <RadzenButton Text="Read Data"   Style="width: 300px" Click="@(_ => OnReadData())"/>
+        </div>
+    </div>
+</div>
+
+
+
+<br/>
+
+<input type="text" @bind-value=@Test2/>
+<br/>
+<RadzenTextBox @bind-value=@Test2/>
+@Test1
+<br/>
+@Test2
+<br/>
+
+
+
+

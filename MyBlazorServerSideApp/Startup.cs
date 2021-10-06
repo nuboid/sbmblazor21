@@ -10,6 +10,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Blazored.LocalStorage;
+using Radzen;
+using MyBlazorServerSideApp.DataServices;
 
 namespace MyBlazorServerSideApp
 {
@@ -29,6 +32,9 @@ namespace MyBlazorServerSideApp
             services.AddRazorPages();
             services.AddServerSideBlazor();
             services.AddSingleton<WeatherForecastService>();
+            services.AddScoped<NotificationService>();
+            services.AddSingleton<MyDataService>();
+            services.AddBlazoredLocalStorage();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
