@@ -1,0 +1,23 @@
+﻿
+<h3>MyComponent</h3>
+
+Naam : <input type="text" @bind-value=@SomeValue />
+
+@code {
+
+    private string _value;
+    [Parameter]
+    public string SomeValue
+    {
+        get => _value;
+        set
+        {
+            if (_value == value) return;
+            _value = value;
+            SomeValueChanged.InvokeAsync(value);
+        }
+    }
+
+    [Parameter]
+    public EventCallback<string> SomeValueChanged { get; set; }
+}

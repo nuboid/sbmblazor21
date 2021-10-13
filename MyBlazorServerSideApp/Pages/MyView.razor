@@ -1,0 +1,56 @@
+﻿@page "/"
+
+@using MyBlazorServerSideApp.Components
+@using MyBlazorServerSideApp.ViewModels
+
+@if (isVisible)
+{
+    <h1>TEST</h1>
+}
+
+
+@BindingContext.Model.Name
+
+<br/>
+
+
+<button class="btn btn-primary" @onclick="BindingContext.MyCommand.Execute">Click me</button>
+<input type="text" @bind-value=@BindingContext.Model.Name/>
+<button class="btn btn-primary" @onclick="BindingContext.MyCommand2.Execute">Click me</button>
+
+<button class="btn btn-primary" @onclick="TestRenderFragment">Click me</button>
+
+@MyRenderFragment;
+
+X
+<MyComponent @bind-SomeValue="@BindingContext.Model.Name"></MyComponent>
+Y
+<RadzenMask Mask="(***) ***-****" Pattern="[^0-9]" Placeholder="(000) 000-0000" Name="Phone"  />
+<RadzenMask Mask="****" Pattern="[^A-Z]" Placeholder="XXXX" Name="Phone"  />
+@code {
+
+    public Boolean isVisible { get; set; }
+    public MyViewModel BindingContext { get; set; }
+
+    protected override void OnInitialized()
+    {
+        BindingContext = new MyViewModel();
+    }
+
+
+    public RenderFragment MyRenderFragment { get; set; }
+
+
+    private void TestRenderFragment()
+    {
+        MyRenderFragment = RenderWidgetA;
+    }
+
+    static readonly RenderFragment RenderWidgetA = __builder =>
+    {
+        var test = DateTime.Now.Ticks;
+        <p>This is a widget</p>
+        <b>@test</b>
+    };
+
+}

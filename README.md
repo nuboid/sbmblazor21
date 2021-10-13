@@ -44,8 +44,48 @@ https://getbootstrap.com/docs/5.1/examples/
 
 https://blazor.radzen.com/
 
-# Links les 3
-
 https://github.com/Blazored/LocalStorage
+
+Topics Les 3
+
+https://hovermind.com/blazor/offline-storage.html
+
+- MVVM
+
+- DataRepositories
+
+https://blog.stevensanderson.com/2019/08/03/blazor-indexeddb/
+https://github.com/wtulloch/Blazor.IndexedDB
+
+- Component Parameters
+
+- RenderFragments
+
+- dotnet watch run
+
+- LiveSharp
+
+- https://github.com/hassanhabib/PrettyBlazor
+
+- Deploy To Azure
+
+- ServiceCollection
+
+- singleton ChatDemo
+
+https://docs.microsoft.com/en-us/mobile-blazor-bindings/walkthroughs/skiasharp
+
+- https://docs.microsoft.com/en-us/aspnet/core/blazor/progressive-web-app?view=aspnetcore-5.0&tabs=visual-studio
+https://github.com/SteveSandersonMS/CarChecker
+
+https://www.telerik.com/blogs/blazor-on-desktop
+https://github.com/jspuij/TwokaB/tree/master/sample/BlazorApp.Android
+
+
+hosten op azure storage
+
+
+
+
 
 
