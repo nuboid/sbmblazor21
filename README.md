@@ -94,10 +94,15 @@ More topics
 # Links les 4
 
 https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app
+
 https://github.com/Azure-Samples/ms-identity-blazor-wasm
+
 https://github.com/Azure-Samples/ms-identity-blazor-server
+
 https://docs.microsoft.com/en-us/aspnet/core/blazor/security/webassembly/standalone-with-authentication-library?view=aspnetcore-5.0
+
 https://docs.microsoft.com/en-us/ef/core/
+
 
 dotnet command for Entity Framework
 
