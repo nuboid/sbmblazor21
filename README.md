@@ -91,6 +91,32 @@ More topics
 - API's
 
 
+# Links les 4
+
+https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app
+https://github.com/Azure-Samples/ms-identity-blazor-wasm
+https://github.com/Azure-Samples/ms-identity-blazor-server
+https://docs.microsoft.com/en-us/aspnet/core/blazor/security/webassembly/standalone-with-authentication-library?view=aspnetcore-5.0
+https://docs.microsoft.com/en-us/ef/core/
+
+dotnet command for Entity Framework
+
+dotnet tool install --global dotnet-ef
+dotnet ef migrations add InitialCreate
+dotnet ef database update
+
+
+ <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.11" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.11">
+
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.11" />
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlServer(
+                @"Server=DESKTOP-XXXXXXX\SQLEXPRESS19;Database=EFDemo;Trusted_Connection=True");
+            optionsBuilder.LogTo(Console.WriteLine);
+        }
 
 
 
