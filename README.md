@@ -123,7 +123,9 @@ dotnet ef database update
             optionsBuilder.LogTo(Console.WriteLine);
         }
 
-
+API's
+     
+https://docs.microsoft.com/en-us/aspnet/core/blazor/call-web-api?view=aspnetcore-5.0&pivots=webassembly
 
 
 
