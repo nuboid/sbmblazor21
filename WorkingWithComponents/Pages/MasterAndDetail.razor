@@ -1,0 +1,20 @@
+﻿@page "/masteranddetail"
+@using WorkingWithComponents.MyComponents
+<h3>MasterAndDetail</h3>
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6">
+            <ContinentsComponent @bind-ContinentIdValue="@ContinentId"></ContinentsComponent>
+        </div>
+        <div class="col-md-6">
+            <CountriesComponent Id="@ContinentId"></CountriesComponent>
+        </div>
+    </div>
+</div>
+
+
+@code {
+    public string ContinentId { get; set; }
+}

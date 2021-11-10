@@ -1,0 +1,31 @@
+﻿@page "/test1"
+@using ServicesLifetimes.Services
+<h3>TestPage1</h3>
+@inject MyRealtimeLogger _myRealtimeLogger;
+
+<button class="btn btn-primary" @onclick="Test">TEST</button>
+@Data
+@code {
+
+    private string Data;
+    protected override void OnInitialized()
+    {
+        _myRealtimeLogger.StoreSomething("OnInitialized");
+    }
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        _myRealtimeLogger.StoreSomething("OnAfterRender " + firstRender);
+    }
+
+    protected override void OnParametersSet()
+    {
+        _myRealtimeLogger.StoreSomething("OnParametersSet");
+    }
+
+    private void Test()
+    {
+        Data = DateTime.Now.Ticks.ToString();
+    }
+
+}

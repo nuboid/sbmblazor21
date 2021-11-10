@@ -1,0 +1,46 @@
+﻿@using WorkingWithComponents.Services
+@inject NavigationManager _navigationManager;
+@inject MasterService _masterService
+
+<table>
+    @foreach (var item in _continents)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Name</td>
+            <td><button class="btn btn-primary" 
+                        
+                        @onclick="@(x=>GotoDetail(item.Id))">Click me</button></td>
+        </tr>
+    }
+</table>
+@code {
+
+    private List<Continent> _continents;
+    protected override void OnInitialized()
+    {
+        _continents = _masterService.GetContinents();
+    }
+
+    private void GotoDetail(string itemId)
+    {
+        ContinentIdValue = itemId;
+    }
+ 
+    private string _value;
+    [Parameter]
+    public string ContinentIdValue
+    {
+        get => _value;
+        set
+        {
+            if (_value == value) return;
+            _value = value;
+            ContinentIdValueChanged.InvokeAsync(value);
+        }
+    }
+
+    [Parameter]
+    public EventCallback<string> ContinentIdValueChanged { get; set; }
+}
+

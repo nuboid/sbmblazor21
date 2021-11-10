@@ -1,0 +1,12 @@
+﻿@page "/test0"
+@inject NavigationManager _navigationManager;
+<h3>TestPage0</h3>
+
+<button class="btn btn-primary" @onclick="Test">GoTo Page 1</button>
+@code {
+
+    private void Test()
+    {
+        _navigationManager.NavigateTo("test1");
+    }
+}

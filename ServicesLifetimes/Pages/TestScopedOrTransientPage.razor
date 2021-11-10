@@ -1,0 +1,42 @@
+﻿@page "/test"
+@using ServicesLifetimes.Services
+
+@inject Service2 _myService2;
+@inject Service3 _myService3;
+
+<h3>TestScopedOrTransientPage</h3>
+
+<input placeholder="Enter your text" @bind-value="@TestData" />
+
+@TestDataOut
+
+<button class="btn btn-primary" @onclick="Set2">Set with Service 2</button>
+<button class="btn btn-primary" @onclick="Set3">Set with Service 3</button>
+
+<button class="btn btn-primary" @onclick="Get2">Click me</button>
+<button class="btn btn-primary" @onclick="Get3">Click me</button>
+@code {
+
+    private string TestData;
+    private string TestDataOut;
+
+    private void Set2()
+    {
+        _myService2.SetSomething(TestData);
+    }
+    private void Set3()
+    {
+        _myService3.SetSomething(TestData);
+    }
+
+    private void Get2()
+    {
+        TestDataOut = _myService2.GetSomething();
+    }
+
+    private void Get3()
+    {
+        TestDataOut = _myService3.GetSomething();
+    }
+
+}

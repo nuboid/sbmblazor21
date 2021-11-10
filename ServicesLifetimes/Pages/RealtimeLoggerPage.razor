@@ -1,0 +1,28 @@
+﻿@page "/realtimelogger"
+@using ServicesLifetimes.Services
+
+@inject MyRealtimeLogger _myRealtimeLogger
+
+
+@((MarkupString)@LogData)
+
+
+
+@code {
+
+    private string LogData;
+    protected override void OnAfterRender(bool firstRender)
+    {
+        if (firstRender)
+        {
+            _myRealtimeLogger.ReportLog = OnReportLog;
+        }
+    }
+
+    private async void OnReportLog(string data)
+    {
+        LogData = LogData + data + @"<br/>";
+        await InvokeAsync(StateHasChanged);
+    }
+
+}

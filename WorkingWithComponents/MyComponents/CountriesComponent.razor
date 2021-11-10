@@ -1,0 +1,28 @@
+﻿@using WorkingWithComponents.Services
+<h3>DetailPage</h3>
+@inject DetailService _detailService;
+
+@if (_countries != null)
+{
+    @foreach (var item in _countries)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Name</td>
+        </tr>
+    }
+}
+@code {
+
+    [Parameter()]
+    public string Id { get; set; }
+
+    private List<Country> _countries;
+    protected override void OnParametersSet()
+    {
+        if (Id != null)
+        {
+            _countries = _detailService.GetCountries(Id);
+        }
+    }
+}
